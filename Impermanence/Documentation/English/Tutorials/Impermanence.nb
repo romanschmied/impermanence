@@ -1,0 +1,1074 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     43008,       1066]
+NotebookOptionsPosition[     34182,        879]
+NotebookOutlinePosition[     34617,        896]
+CellTagsIndexPosition[     34574,        893]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.6", "HistoryData",
+  CellTags->"New",ExpressionUUID->"2657f119-eebb-487d-8b1a-0093ed01b6f6"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"04255a1c-05a3-4df7-8e76-41015ba0dd7d"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"1c052f3c-8926-4972-a41f-d42477a223c9"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised",ExpressionUUID->"e77296e1-596f-4162-bfd0-703a465c4698"]
+}], "History",
+ CellChangeTimes->{{3.726855077323889*^9, 3.726855077369278*^9}},
+ CellID->1247902091,ExpressionUUID->"735a5c5a-3cbd-487a-8c65-da876f601393"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"56346588-27d7-4144-b8e6-28afbf07491d"],
+
+Cell["Tutorial", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"43d54611-6346-4fb7-9e0f-d728e0d88674"],
+
+Cell["Impermanence", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"a4af1685-5936-4a1e-af34-656c707716ed"],
+
+Cell["Impermanence`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"5f840225-7f3a-4237-98d4-f07cacde1ff5"],
+
+Cell["Impermanence/tutorial/Impermanence", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"ba993c39-75e8-4345-ab31-cb95e8960976"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"74dfd577-8a88-46a2-b2cd-f2e65cdc1a09"],
+
+Cell["XXXX", "Keywords",
+ CellID->1251852827,ExpressionUUID->"fea7ab03-db66-4a2f-a714-b74e442e5e22"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771,ExpressionUUID->"5bf86bad-3cef-49e9-a567-727c51ef616b"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->218895918,ExpressionUUID->"2c97c644-7e88-4841-9019-daf82bf0a2e3"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985,ExpressionUUID->"96a11d36-76fb-4c4c-aa31-488427fa83f7"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->795871300,ExpressionUUID->"9e032bfa-2c5d-467f-9f8d-f9b7203f6837"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->199739161,ExpressionUUID->"a520092c-b0fa-4445-b2f1-d7c97ac82afe"],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->40625308,ExpressionUUID->"45b580b2-8a6a-4a4c-841a-8de84374def7"],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->357121918,ExpressionUUID->"724e3aa3-7f86-4570-ab6c-ddc2e4a01633"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->35949532,ExpressionUUID->"9eefb781-2609-4620-a6ae-07e12cb6a180"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->929432370,ExpressionUUID->"af9666b3-6de0-4cdb-8c10-20910b6c94d9"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365,ExpressionUUID->"54acc79d-8177-46fc-9896-70b57cc1cf26"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Impermanence", "Title",
+ CellID->509267359,ExpressionUUID->"625cebad-e22a-4435-a5fb-2243a40e8bf3"],
+
+Cell[TextData[{
+ StyleBox["Impermanence",
+  FontWeight->"Bold"],
+ " is a Mathematica package that provides variables whose content changes \
+randomly over time. The longer a variable is allowed to sit around, the more \
+its content changes from its initial value."
+}], "Text",
+ CellChangeTimes->{{3.726852871448557*^9, 3.726852881023486*^9}, {
+  3.72685354555057*^9, 3.726853546108615*^9}},
+ CellID->1448628226,ExpressionUUID->"4bbbca92-7ede-45ca-931e-81dca3bdf26d"],
+
+Cell["\<\
+This tutorial covers the metaphysical background and the practical use of \
+impermanent variables.\
+\>", "Text",
+ CellChangeTimes->{{3.72504091884416*^9, 3.7250409764680767`*^9}, {
+  3.726853543377494*^9, 3.726853543971285*^9}},
+ CellID->1534169418,ExpressionUUID->"633827d9-bde7-4892-b416-22a8fff55d67"],
+
+Cell[CellGroupData[{
+
+Cell["metaphysical background", "Section",
+ CellChangeTimes->{{3.7268528510357723`*^9, 3.726852854917522*^9}},
+ CellID->363195118,ExpressionUUID->"1f48d18b-eb3b-48a1-8717-eff2816c76e3"],
+
+Cell[CellGroupData[{
+
+Cell["the idea of variables holding data permanently", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852956109542*^9}},
+ CellID->2091002589,ExpressionUUID->"c65a3bca-be98-4598-ac39-490f9b1ace2c"],
+
+Cell["\<\
+The common saving of data in computer science relies on the concept that some \
+information can be stored for an indefinite amount of time, and then be \
+retrieved in a completely lossless process. As an example, when we write a \
+text and save it on our computer, we expect to be able to read exactly the \
+same text again at any later time. The file should hold our data forever and \
+without changing.\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.7268529679161463`*^9}, {
+  3.7268535406953897`*^9, 3.726853541268252*^9}},
+ CellID->672245636,ExpressionUUID->"6250b7fa-0a9f-4e3a-aa27-e62a092e31a2"],
+
+Cell[TextData[{
+ "At the root of all data storage mechanisms lies the computational concept \
+of a ",
+ ButtonBox["variable",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Variable_(computer_science)"], None}],
+ ", which is an abstract space that holds a value perfectly and for all time \
+(or at least until it isn't needed any longer). The content of a variable can \
+be set and read; apart from these actions, nothing ever happens to a variable \
+\[Dash] it is static for as long as we wish."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852976087326*^9}, {
+   3.726853115934514*^9, 3.726853115981361*^9}, {3.7268535388335953`*^9, 
+   3.7268535393979607`*^9}, 3.7268536299109383`*^9},
+ CellID->1509796112,ExpressionUUID->"f927e94b-7be0-488c-a255-2c6012511483"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["permanence in the real world", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852978043713*^9}},
+ CellID->1172304914,ExpressionUUID->"ba8d68c6-df83-46b5-bb5a-b8df0dd8e693"],
+
+Cell["\<\
+By contrast, our experience tells us that in the real world we unfailingly \
+lose information. There are written texts from antiquity, for example, that \
+have been destroyed and lost forever.\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852993146318*^9}, {
+  3.726853535965519*^9, 3.726853536524041*^9}},
+ CellID->1341745064,ExpressionUUID->"1946c5b0-073f-446b-8ee6-f6cb64f0c4fc"],
+
+Cell[TextData[{
+ "This loss of information is inevitably linked to the most fundamental \
+aspects of physics. Technically, the ",
+ ButtonBox["second law of thermodynamics",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Second_law_of_thermodynamics"], 
+    None}],
+ " assures us that the order of a closed system can at most stay constant but \
+never increase spontaneously; more practically, this means that an unwanted \
+disturbance of a data storage is almost guaranteed to lead to ",
+ ButtonBox["information loss",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Data_degradation"], None}],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852996808628*^9}, {
+  3.726853159256825*^9, 3.7268532027747717`*^9}, {3.726853532349345*^9, 
+  3.726853533016655*^9}},
+ CellID->1274662809,ExpressionUUID->"45732092-2b7f-410f-8a2b-a7fed714fad1"],
+
+Cell[TextData[{
+ ButtonBox["Flash memory",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Flash_memory"], None}],
+ ", which is the current standard for computer data storage, has a data \
+retention time estimated around a few years (likely less than 20). With a \
+multi-level ",
+ ButtonBox["error-correcting algorithm",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Error_detection_and_correction"], 
+    None}],
+ ", this time scale can be extended to arbitrarily long times; however, can \
+we reasonably expect someone to still run this error-correcting algorithm in \
+the far future? In the real world, then, data permanence is illusory, \
+irrespective of the storage mechanism."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852999044609*^9}, {
+  3.726853222088451*^9, 3.72685325161205*^9}, {3.7268535270713863`*^9, 
+  3.7268535278050833`*^9}},
+ CellID->357593670,ExpressionUUID->"b9edbba3-6602-4622-9670-0d4a83d10ba1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["consequences", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852999916061*^9}},
+ CellID->795472253,ExpressionUUID->"f62b6ab0-4955-4add-a32a-193b8674d392"],
+
+Cell["\<\
+If your information was stored for a long time shh eegdcss nh \
+jmforl`tjoo!knus\.1fdal\\\"bd bje`rnz\.1esbdp\.1eguno \.1ftils\.1etfvs-!xhjdj \
+1fv`swqi steo! snkd!lim wtdr\\. 1fbed nre!rf_dk ne!ft bh`il/ 1f Sehr\\\"jt \
+1fuhf qcme degfcu sh_u!ap umd ibqoen to\.1fanz tyre\.1e og!tsot dd!ingp \
+qlasipo= timf! wimj hmfuiu``ly\.1fkead! to!_ dd hq_cauin m\.1fpg sjf `on tent.\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.7268530072555647`*^9}, {
+  3.7268535253843412`*^9, 3.726853525656713*^9}},
+ CellID->1436331852,ExpressionUUID->"4f36f817-b212-4656-956a-11f2667db551"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["conceptual paradoxes of static things", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726853008309758*^9}},
+ CellID->444222777,ExpressionUUID->"92c02fe3-ec03-4f80-8e37-54f0d9eaa359"],
+
+Cell["\<\
+What, then, is the use of relying on the concept of permanently enduring \
+information? Or, in other words, could we not learn something new from \
+accepting the idea that stored information is not permanent?\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726853013365642*^9}, {
+  3.7268535225896378`*^9, 3.726853523166678*^9}},
+ CellID->1498625983,ExpressionUUID->"f1929085-a780-461f-a5d9-1c190097c71c"],
+
+Cell["\<\
+The mere concept of absolutely static, eternal, entities leads to logical \
+difficulties and paradoxes. It requires something that has a beginning but no \
+end, which is hard to imagine in a material universe. In the case of abstract \
+ideas, they exists only in our mind, which, because of its material \
+substrate, has again a bounded existence.\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.7268530150670967`*^9}, {
+  3.726853520374847*^9, 3.726853520919067*^9}},
+ CellID->971954906,ExpressionUUID->"f57d61c9-3c22-4d0e-a9ac-61ab62b12c89"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["impermanence idea", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726853015833234*^9}},
+ CellID->1454836565,ExpressionUUID->"90117a5d-2141-42ff-b0f4-311e4ec37c0c"],
+
+Cell[TextData[{
+ "Therefore, from a philosophical perspective, classical computer science \
+appears as an attempt to idealize the concepts of information, memory, etc. \
+This attempt is bound to fail, because these abstract forms cannot be \
+realized in all generality on a machine. Moreover, this idealizing approach \
+occasionally leads to the fallacious belief that such ",
+ ButtonBox["platonic ideals",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Theory_of_forms"], None}],
+ " represent accurately our reality."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726853021682281*^9}, {
+  3.726853315112206*^9, 3.726853315170608*^9}, {3.726853517348288*^9, 
+  3.726853518208569*^9}},
+ CellID->1334145171,ExpressionUUID->"fca13929-b3c8-4199-973e-6a45453fae8f"],
+
+Cell[TextData[{
+ "For this reason, we embrace the observation that existing entities undergo \
+a constant mutation, they are transient, evanescent, inconstant. This \
+philosophical thought is already present in ",
+ ButtonBox["Heraclitus'",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Heraclitus"], None}],
+ " ",
+ StyleBox["panta rhei",
+  FontSlant->"Italic"],
+ ", in ",
+ ButtonBox["Buddhist",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Buddhism"], None}],
+ " ",
+ StyleBox["impermanence",
+  FontSlant->"Italic"],
+ ", and in many other doctrines."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.7268530236130333`*^9}, {
+  3.726853339143346*^9, 3.72685337016822*^9}, {3.726853515243395*^9, 
+  3.726853515806685*^9}, {3.726853634104177*^9, 3.726853634989729*^9}},
+ CellID->1168456515,ExpressionUUID->"0f095b3b-8c9e-4c80-85cb-6a0672c68882"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["applications", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852994453431*^9}, {
+  3.726853024479533*^9, 3.726853024479868*^9}},
+ CellID->868063196,ExpressionUUID->"a810104c-8a94-4a02-ba99-83d1f76ee599"],
+
+Cell[TextData[{
+ "Since in reality there are no truly permanent variables, it may be \
+advantageous to start thinking about strategies to cope with impermanence, \
+instead of pretending it isn't happening. The ",
+ StyleBox["Impermanence",
+  FontWeight->"Bold"],
+ " package can help to develop such strategies by exaggerating the rate of \
+impermanence in data storage. With this tool, coping strategies can be \
+studied more easily."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852994453431*^9}, {
+   3.726853030686254*^9, 3.7268530306865997`*^9}, {3.726853513549683*^9, 
+   3.726853514028852*^9}, 3.7268536373959923`*^9},
+ CellID->1786917670,ExpressionUUID->"82f44f38-b19b-45b5-98dd-da162d23fad7"],
+
+Cell["\<\
+In biology, as well as in society, a relatively stable structure is built on \
+top of a noisy substrate. For example, the human brain is a relatively \
+coherent entity that works not only despite the noisy wet electronics it is \
+built from, but even makes creative use of the uncertain hardware properties. \
+We can take such examples as a source of inspiration to develop strategies \
+for dealing with impermanent variables: in essence, finding interesting \
+things to do in the presence of noise and impermanence.\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852994453431*^9}, {
+  3.7268530329234543`*^9, 3.7268530522879963`*^9}, {3.726853511908896*^9, 
+  3.72685351213435*^9}},
+ CellID->1607046014,ExpressionUUID->"fb35c87f-c798-4e2f-904b-51f00f86f1e8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["the irony of this package", "Subsection",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852994453431*^9}, {
+  3.72685303393896*^9, 3.7268530339392853`*^9}},
+ CellID->519706979,ExpressionUUID->"eb5d054c-6a8e-4d0b-88d3-54ca615fbe4e"],
+
+Cell[TextData[{
+ "The variables provided by the ",
+ StyleBox["Impermanence",
+  FontWeight->"Bold"],
+ " package are only a simulation of data impermanence. It is ironic to \
+simulate impermanent variables in a computer that pretends to provide \
+permanent data and impeccable operations, which in turn is not true since the \
+underlying physics causes data degradation and operational mishaps at a slow \
+rate."
+}], "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852994453431*^9}, {
+  3.726853040252111*^9, 3.7268530402551603`*^9}, {3.726853509061125*^9, 
+  3.726853509291986*^9}},
+ CellID->999984873,ExpressionUUID->"178f2375-920e-4b98-a1a6-fdb43e9f86fd"],
+
+Cell["\<\
+It should also be noted that although this package tries to illustrate an \
+aspect of reality that has often been neglected in many computer models, this \
+package is itself still just a model of impermanence. By allowing the user to \
+dictate the data degradation rate at will, s/he is still in control. True \
+impermanence, however, is outside of user control.\
+\>", "Text",
+ CellChangeTimes->{{3.726852919101185*^9, 3.726852994453431*^9}, {
+  3.726853046779313*^9, 3.726853047629593*^9}, {3.726853507384075*^9, 
+  3.726853507609215*^9}},
+ CellID->1225304024,ExpressionUUID->"240ee065-2494-4c58-bb83-dfcaa77bf688"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["technical description", "Section",
+ CellChangeTimes->{{3.7268534210110064`*^9, 3.7268534343813257`*^9}},
+ CellID->2105163132,ExpressionUUID->"1b15faf5-3efe-448d-b725-60f1a450e858"],
+
+Cell[TextData[{
+ "Assume that we have defined an impermanent variable ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "d4b3087c-fb5e-47d7-b4e8-f59b203bfcdd"],
+ ". When reading this variable at time ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "ca41104c-5fe3-44f6-8275-d00b974466de"],
+ " we get the value ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "547dc8fa-c49b-40b1-89cd-33e05ae02a9c"],
+ ", and at a later time ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "416b57b7-c8df-4c5a-ae63-6b61676cabfa"],
+ " we get ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "7c73cf72-5906-4381-b56b-940fd29a27d6"],
+ ". The two measurements ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "c86b5d4e-a4c7-4163-af1d-1c3a4eb06445"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "a9c7ce6d-f822-4404-916c-44aac83a35df"],
+ " differ by a random amount that increases as the elapsed time interval (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["t", "2"], "-", 
+    SubscriptBox["t", "1"]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "043163ca-7157-425b-ae22-db99fd0e3515"],
+ ") increases."
+}], "Text",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.726853506155901*^9}, {
+  3.726853554338085*^9, 3.726853608522644*^9}},
+ CellID->2021506240,ExpressionUUID->"f31cbafa-b8d8-4c8a-b670-faef8c143c5c"],
+
+Cell[TextData[{
+ "More precisely, every impermanent variable's content simulates a ",
+ ButtonBox["Wiener process",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Wiener_process"], None}],
+ ". This means that the expectation value of the difference between two \
+measurements is zero, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftAngleBracket]", 
+     RowBox[{
+      SubscriptBox["x", "2"], "-", 
+      SubscriptBox["x", "1"]}], "\[RightAngleBracket]"}], "=", "0"}], 
+   TraditionalForm]],ExpressionUUID->"eeb3f774-4733-4abb-9636-9e8623438121"],
+ " (or, in other words, the expected value for the second measurement is \
+equal to the first measurement, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftAngleBracket]", 
+     SubscriptBox["x", "2"], "\[RightAngleBracket]"}], "=", 
+    SubscriptBox["x", "1"]}], TraditionalForm]],ExpressionUUID->
+  "d2551b33-5b20-4775-99f1-631e1e71e185"],
+ "), while the variance of this difference grows with the elapsed time \
+interval, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftAngleBracket]", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["x", "2"], "-", 
+        SubscriptBox["x", "1"]}], ")"}], "2"], "\[RightAngleBracket]"}], "=", 
+    
+    RowBox[{"2", "\[CenterDot]", "\[ScriptCapitalD]", "\[CenterDot]", 
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["t", "2"], "-", 
+       SubscriptBox["t", "1"]}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "563621d3-5f87-4496-b4ee-2eaee63cd382"],
+ ". The diffusion constant ",
+ Cell[BoxData[
+  FormBox["\[ScriptCapitalD]", TraditionalForm]],ExpressionUUID->
+  "fd415a31-ae4d-4e8e-a61d-4f578ddd27de"],
+ " determines how fast the measured values diverge; setting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[ScriptCapitalD]", "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "7e14846c-d709-422a-a561-9d8d3a8089bc"],
+ " makes the variable permanent."
+}], "Text",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.726853489956965*^9}, {
+  3.726853612774873*^9, 3.726853613070355*^9}, {3.726853673657628*^9, 
+  3.7268538120263367`*^9}, {3.726854775322339*^9, 3.726854788475502*^9}},
+ CellID->346116279,ExpressionUUID->"579f890d-6994-475c-a998-4c27874c2397"],
+
+Cell["\<\
+There are several reasons why we use the Wiener process to simulate \
+impermanence:\
+\>", "Text",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.7268534795296392`*^9}},
+ CellID->736067505,ExpressionUUID->"78c93157-184a-43cc-ba0a-d177aaf56b5c"],
+
+Cell[TextData[{
+ "The Wiener process can be sampled without simulating intermediate time \
+steps, because of its property that non-overlapping time intervals give rise \
+to uncorrelated random steps. Whenever the user requests a variable's value \
+at time ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "f7620a90-d807-4823-a8f8-17e3ea598e87"],
+ ", it can be determined immediately by adding a Gaussian random number [zero \
+mean; variance ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", "\[CenterDot]", "\[ScriptCapitalD]", "\[CenterDot]", 
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["t", "2"], "-", 
+      SubscriptBox["t", "1"]}], ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "43719a62-5dd7-4713-a833-7faa078bfe86"],
+ "] to the previous measurement at time ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "b36c30bf-9041-4a8b-bc39-ecac0883642b"],
+ "."
+}], "BulletedText",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.726853497443328*^9}, 
+   3.7268536394097147`*^9, {3.726853876327731*^9, 3.726853904620652*^9}},
+ CellID->2035831027,ExpressionUUID->"bd94e974-622a-45d2-b9ae-d15fcf43e843"],
+
+Cell[TextData[{
+ "The Wiener process is a ",
+ ButtonBox["martingale",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://en.wikipedia.org/wiki/Martingale_(probability_theory)"], 
+    None}],
+ ". This is what we believe is the meaning of setting a variable: that the \
+expectation value of all future measurements is equal to the present value, \
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftAngleBracket]", 
+     SubscriptBox["x", "2"], "\[RightAngleBracket]"}], "=", 
+    SubscriptBox["x", "1"]}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "d5ea5001-59db-4fed-9fdc-c20c34033fd2"],
+ "."
+}], "BulletedText",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.7268534998372307`*^9}, {
+  3.726853926960569*^9, 3.7268539483149776`*^9}},
+ CellID->1125263907,ExpressionUUID->"9e7bc989-edd5-4eb3-872c-fd66c9cd0224"],
+
+Cell[TextData[{
+ "Sampling the impermanent variable has no effect on the properties of the \
+underlying Wiener process. In particular, sampling the variable ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "b8bdfe12-0dcd-47ba-99fa-4e62aac4fc54"],
+ " at a time between ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "bfe3cd65-6630-4ab6-a2c0-53abf83f9087"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "d14dfcbc-d3b4-4ef8-b347-678a4917a8de"],
+ " has no effect on the aforementioned properties."
+}], "BulletedText",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.726853469164905*^9}, {
+  3.726853501687111*^9, 3.726853502271142*^9}, {3.726853952792054*^9, 
+  3.7268539611310797`*^9}},
+ CellID->1256618946,ExpressionUUID->"3aadf624-a00b-43c0-a2b0-666d72a23d04"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The Wiener process has a noise power spectrum proportional to ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[Omega]", 
+    RowBox[{"-", "2"}]], TraditionalForm]],ExpressionUUID->
+  "1d644ad0-c171-43ca-9a22-89c0d1ecccb6"],
+ ". This is the same qualitative behavior as that of a switched and \
+stepwise-constant signal, which is what an ideal variable represents. In \
+fact, the Fourier transform of a step function has a ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[Omega]", 
+    RowBox[{"-", "2"}]], TraditionalForm]],ExpressionUUID->
+  "9d017d89-cb33-4cc0-b57c-7542cfde9e19"],
+ " power spectrum, albeit with a non-random relationship between the spectral \
+components:"
+}], "BulletedText",
+ CellChangeTimes->{{3.7268534632943163`*^9, 3.72685346429978*^9}, {
+  3.726853503646196*^9, 3.726853504164193*^9}, {3.7268539658329687`*^9, 
+  3.7268539681867123`*^9}, {3.7268548024230957`*^9, 3.7268548691416388`*^9}, {
+  3.726855506172696*^9, 3.726855508962289*^9}},
+ CellID->1525240975,ExpressionUUID->"72def46f-0e5d-4628-9353-625dd08e5c8e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Assuming", "[", 
+  RowBox[{
+   RowBox[{"\[Omega]", "\[Element]", "Reals"}], ",", 
+   RowBox[{"FullSimplify", "[", 
+    SuperscriptBox[
+     RowBox[{"Abs", "[", 
+      RowBox[{"FourierTransform", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"HeavisideTheta", "[", "t", "]"}], "-", 
+         FractionBox["1", "2"]}], ",", "t", ",", "\[Omega]"}], "]"}], "]"}], 
+     "2"], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7268550347148113`*^9, 3.726855059379799*^9}, 
+   3.726855493860559*^9},
+ CellLabel->"In[1]:=",
+ CellID->710145480,ExpressionUUID->"cce935ce-9b4e-4d82-9090-02be8a75878b"],
+
+Cell[BoxData[
+ FractionBox["1", 
+  RowBox[{"2", " ", "\[Pi]", " ", 
+   SuperscriptBox["\[Omega]", "2"]}]]], "Output",
+ CellChangeTimes->{
+  3.726855060183262*^9, {3.726855500854971*^9, 3.726855525109541*^9}, {
+   3.7268952240821533`*^9, 3.726895240317985*^9}},
+ CellLabel->"Out[1]=",
+ CellID->1212174763,ExpressionUUID->"3aeaa012-90dd-41ce-a64d-4a12ba42a5ba"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["usage overview", "Section",
+ CellChangeTimes->{{3.726852834706387*^9, 3.726852838312023*^9}, {
+  3.726855699854887*^9, 3.726855700944172*^9}},
+ CellID->1277865433,ExpressionUUID->"d311c60d-9e50-4d2c-b5ac-64788ea32d83"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["MakeImpermanentVariable",
+      BaseStyle->"Link",
+      ButtonData->"paclet:Impermanence/ref/MakeImpermanentVariable"], "[", 
+     RowBox[{"x", ",", " ", "\[ScriptCapitalD]"}], "]"}], Cell[TextData[{
+     "declares an impermanent variable ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "857a1cd9-b04f-4f69-b561-8ee1f000f54b"],
+     " with diffusion constant ",
+     Cell[BoxData[
+      FormBox["\[ScriptCapitalD]", TraditionalForm]],ExpressionUUID->
+      "247a2e42-8318-4161-b226-944b874132bc"],
+     ", and initializes it to zero."
+    }], "TableText",ExpressionUUID->"f2527d6e-abfe-40cb-9512-1ce164e7e50d"]},
+   {
+    RowBox[{
+     ButtonBox["MakeImpermanentVariable",
+      BaseStyle->"Link",
+      ButtonData->"paclet:Impermanence/ref/MakeImpermanentVariable"], "[", 
+     RowBox[{"x", ",", " ", "\[ScriptCapitalD]", ",", " ", 
+      SubscriptBox["x", "0"]}], "]"}], Cell[TextData[{
+     "declares an impermanent variable ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "d787a604-13f9-4b73-9806-6dbb9e9a134f"],
+     " with diffusion constant ",
+     Cell[BoxData[
+      FormBox["\[ScriptCapitalD]", TraditionalForm]],ExpressionUUID->
+      "50328c4b-e9a6-4e1a-b0fe-b05d80f704c3"],
+     ", and initializes it to ",
+     Cell[BoxData[
+      FormBox[
+       SubscriptBox["x", "0"], TraditionalForm]],ExpressionUUID->
+      "133f4ee3-7454-4a66-a64d-df85181a6bbb"],
+     "."
+    }], "TableText",ExpressionUUID->"5e91df52-b6bd-470f-b94b-d8a15f43eb03"]},
+   {
+    ButtonBox["ImpermanenceVersion",
+     BaseStyle->"Link",
+     ButtonData->"paclet:Impermanence/ref/ImpermanenceVersion"], Cell[
+    "gives the package version.", "TableText",ExpressionUUID->
+     "baa297ff-3e1f-4123-94a8-70f31a41426c"]},
+   {
+    RowBox[{"x", " ", "=", " ", "5"}], Cell[TextData[{
+     "sets the variable ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "6045dbbc-d49a-431b-99bf-44c2e2cdb4ef"],
+     " to the given real numerical value."
+    }], "TableText",ExpressionUUID->"945edebe-b687-4cad-a771-b938071e1429"]},
+   {
+    RowBox[{"x", " ", "=", " ", 
+     RowBox[{"2", " ", "+", " ", 
+      RowBox[{"3", "\[ImaginaryI]"}]}]}], Cell[TextData[{
+     "sets the variable ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "cd840d89-c061-4c1c-80a0-b2582fe4b84d"],
+     " to the given complex numerical value."
+    }], "TableText",ExpressionUUID->"e354e128-70c1-4eae-a285-dabcf946cd50"]},
+   {
+    RowBox[{"x", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "2", ",", " ", "3"}], "}"}]}], Cell[TextData[{
+     "sets the variable ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "28cf21cf-dbd2-4d54-80ab-6bf2e8a12e33"],
+     " to the given vector, matrix, or tensor containing real or complex \
+numerical values."
+    }], "TableText",ExpressionUUID->"edd9b0b4-fe15-4be5-a047-0c773dae3de9"]},
+   {
+    RowBox[{"x", " ", "=", " ", "\"\<Hello, world!\>\""}], Cell[TextData[{
+     "sets the variable ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "ee130804-b1ea-485f-b43e-383b5bf67637"],
+     " to the given string."
+    }], "TableText",ExpressionUUID->"c3a2bc43-95e8-4052-a31c-b0a308521f98"]},
+   {"x", Cell[TextData[{
+     "stands for the value contained in ",
+     Cell[BoxData[
+      FormBox["x", TraditionalForm]],ExpressionUUID->
+      "6628b339-579d-4cc3-9673-abe5837a3375"],
+     " at the moment of execution."
+    }], "TableText",ExpressionUUID->"b0d0c7ea-c62d-416f-b03a-a1da035e5e45"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.7250410873145514`*^9, 3.725041119557083*^9}, {
+  3.725042684031774*^9, 3.725042686498336*^9}, {3.7250427279434*^9, 
+  3.7250427934906263`*^9}, {3.725042966187038*^9, 3.725042991314952*^9}, {
+  3.725043047007822*^9, 3.7250430607657957`*^9}, {3.72504448111522*^9, 
+  3.7250444963676987`*^9}, {3.7250852843486023`*^9, 3.7250853296033916`*^9}, {
+  3.7258191044343357`*^9, 3.725819158611223*^9}, {3.726289956269659*^9, 
+  3.7262900108023357`*^9}, {3.726290147881027*^9, 3.726290239522436*^9}, {
+  3.7264808051335163`*^9, 3.726480825588369*^9}, {3.7268556596133757`*^9, 
+  3.726855688940518*^9}, {3.726917142001437*^9, 3.726917200269967*^9}},
+ CellID->2096742444,ExpressionUUID->"7bfea342-42a5-4052-ab29-fbc0eaba74df"],
+
+Cell[TextData[{
+ "The documentation of the ",
+ Cell[BoxData[
+  ButtonBox["MakeImpermanentVariable",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Impermanence/ref/MakeImpermanentVariable"]], 
+  "InlineFormula",ExpressionUUID->"4516bea8-610a-4e90-876a-0c2deea0d74b"],
+ " function gives some examples of how to make use of impermanent variables."
+}], "Text",
+ CellChangeTimes->{{3.726917210749802*^9, 3.726917217890521*^9}},
+ CellID->584640861,ExpressionUUID->"1cd4f941-93ac-4b00-ab76-56f3cd4f27e5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["authorship and license", "Section",
+ CellChangeTimes->{{3.72689485662307*^9, 3.726894860045456*^9}},
+ CellID->951892940,ExpressionUUID->"f5b3c200-0265-4889-9146-52f15a6ed355"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Impermanence",
+  FontWeight->"Bold"],
+ " package was written by Roman Schmied with contributions and inspiration \
+from Matteo Fadel. The idea of variable diffusion comes from the esoteric \
+programming language ",
+ StyleBox[ButtonBox["Entropy",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://esolangs.org/wiki/Entropy"], None}],
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.726894863942824*^9, 3.7268950127489758`*^9}, {
+   3.7268950829290743`*^9, 3.726895082978512*^9}, 3.726896225116975*^9, {
+   3.7269170990723343`*^9, 3.7269171041242247`*^9}},
+ CellID->293912417,ExpressionUUID->"6a65b8c0-478d-4f8a-917e-e41d76e385d8"],
+
+Cell["\<\
+This program is free software: you can redistribute it and/or modify it under \
+the terms of the GNU General Public License as published by the Free Software \
+Foundation, either version 3 of the License, or (at your option) any later \
+version.\
+\>", "Text",
+ CellChangeTimes->{{3.7268951137778273`*^9, 3.72689512613942*^9}},
+ CellID->84768692,ExpressionUUID->"2260f8bd-330c-4f16-9743-0cf680c69db5"],
+
+Cell["\<\
+This program is distributed in the hope that it will be useful, but WITHOUT \
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS \
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more \
+details.\
+\>", "Text",
+ CellChangeTimes->{{3.7268951137778273`*^9, 3.726895138586547*^9}},
+ CellID->849464701,ExpressionUUID->"4d855364-54bb-400c-b844-6a68ff9ebf8a"],
+
+Cell[TextData[{
+ "You should have received a copy of the GNU General Public License along \
+with this program.  If not, see ",
+ ButtonBox["https://www.gnu.org/licenses/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.gnu.org/licenses/"], None}],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.7268951137778273`*^9, 3.726895184867922*^9}},
+ CellID->1213322604,ExpressionUUID->"49e30d30-584b-474e-aa1c-d2c1cf95cf60"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "TutorialMoreAboutSection",
+ CellID->23220180,ExpressionUUID->"dc7c777e-b502-4aff-9858-0f3babf2ea6a"],
+
+Cell["XXXX", "TutorialMoreAbout",
+ CellID->1567025153,ExpressionUUID->"3e831491-2d5c-4525-bb5a-823f2ece9001"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Tutorials", "RelatedTutorialsSection",
+ CellID->415694126,ExpressionUUID->"c7ff52c8-0075-4be5-8ef2-c603124f3239"],
+
+Cell["XXXX", "RelatedTutorials",
+ CellID->806871991,ExpressionUUID->"683aa858-882a-4bce-b0e1-609dadc74b86"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Wolfram Education Group Courses", "TutorialRelatedLinksSection",
+ CellID->415694148,ExpressionUUID->"dc2ad29e-94d9-4ece-959d-cca3c8a92936"],
+
+Cell["XXXX", "TutorialRelatedLinks",
+ CellID->415694149,ExpressionUUID->"0d3c1346-d3b2-4534-a0a4-8768590043c8"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, 197}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 666, 15, 24, "History",ExpressionUUID->"735a5c5a-3cbd-487a-8c65-da876f601393",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[1249, 39, 123, 1, 29, "CategorizationSection",ExpressionUUID->"56346588-27d7-4144-b8e6-28afbf07491d",
+ CellID->1122911449],
+Cell[1375, 42, 136, 2, 70, "Categorization",ExpressionUUID->"43d54611-6346-4fb7-9e0f-d728e0d88674",
+ CellID->686433507],
+Cell[1514, 46, 140, 2, 70, "Categorization",ExpressionUUID->"a4af1685-5936-4a1e-af34-656c707716ed",
+ CellID->605800465],
+Cell[1657, 50, 137, 2, 70, "Categorization",ExpressionUUID->"5f840225-7f3a-4237-98d4-f07cacde1ff5",
+ CellID->468444828],
+Cell[1797, 54, 134, 1, 70, "Categorization",ExpressionUUID->"ba993c39-75e8-4345-ab31-cb95e8960976"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1968, 60, 111, 1, 19, "KeywordsSection",ExpressionUUID->"74dfd577-8a88-46a2-b2cd-f2e65cdc1a09",
+ CellID->1427428552],
+Cell[2082, 63, 100, 1, 70, "Keywords",ExpressionUUID->"fea7ab03-db66-4a2f-a714-b74e442e5e22",
+ CellID->1251852827]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2219, 69, 108, 1, 19, "DetailsSection",ExpressionUUID->"5bf86bad-3cef-49e9-a567-727c51ef616b",
+ CellID->307771771],
+Cell[2330, 72, 118, 2, 70, "Details",ExpressionUUID->"2c97c644-7e88-4841-9019-daf82bf0a2e3",
+ CellID->218895918],
+Cell[2451, 76, 124, 2, 70, "Details",ExpressionUUID->"96a11d36-76fb-4c4c-aa31-488427fa83f7",
+ CellID->350963985],
+Cell[2578, 80, 121, 2, 70, "Details",ExpressionUUID->"9e032bfa-2c5d-467f-9f8d-f9b7203f6837",
+ CellID->795871300],
+Cell[2702, 84, 126, 2, 70, "Details",ExpressionUUID->"a520092c-b0fa-4445-b2f1-d7c97ac82afe",
+ CellID->199739161],
+Cell[2831, 88, 115, 2, 70, "Details",ExpressionUUID->"45b580b2-8a6a-4a4c-841a-8de84374def7",
+ CellID->40625308],
+Cell[2949, 92, 116, 2, 70, "Details",ExpressionUUID->"724e3aa3-7f86-4570-ab6c-ddc2e4a01633",
+ CellID->357121918],
+Cell[3068, 96, 117, 2, 70, "Details",ExpressionUUID->"9eefb781-2609-4620-a6ae-07e12cb6a180",
+ CellID->35949532],
+Cell[3188, 100, 133, 2, 70, "Details",ExpressionUUID->"af9666b3-6de0-4cdb-8c10-20910b6c94d9",
+ CellID->929432370],
+Cell[3324, 104, 122, 2, 70, "Details",ExpressionUUID->"54acc79d-8177-46fc-9896-70b57cc1cf26",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3483, 111, 104, 1, 106, "Title",ExpressionUUID->"625cebad-e22a-4435-a5fb-2243a40e8bf3",
+ CellID->509267359],
+Cell[3590, 114, 466, 9, 40, "Text",ExpressionUUID->"4bbbca92-7ede-45ca-931e-81dca3bdf26d",
+ CellID->1448628226],
+Cell[4059, 125, 314, 6, 23, "Text",ExpressionUUID->"633827d9-bde7-4892-b416-22a8fff55d67",
+ CellID->1534169418],
+Cell[CellGroupData[{
+Cell[4398, 135, 185, 2, 43, "Section",ExpressionUUID->"1f48d18b-eb3b-48a1-8717-eff2816c76e3",
+ CellID->363195118],
+Cell[CellGroupData[{
+Cell[4608, 141, 210, 2, 39, "Subsection",ExpressionUUID->"c65a3bca-be98-4598-ac39-490f9b1ace2c",
+ CellID->2091002589],
+Cell[4821, 145, 622, 10, 74, "Text",ExpressionUUID->"6250b7fa-0a9f-4e3a-aa27-e62a092e31a2",
+ CellID->672245636],
+Cell[5446, 157, 811, 15, 74, "Text",ExpressionUUID->"f927e94b-7be0-488c-a255-2c6012511483",
+ CellID->1509796112]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6294, 177, 192, 2, 39, "Subsection",ExpressionUUID->"ba8d68c6-df83-46b5-bb5a-b8df0dd8e693",
+ CellID->1172304914],
+Cell[6489, 181, 407, 7, 40, "Text",ExpressionUUID->"1946c5b0-073f-446b-8ee6-f6cb64f0c4fc",
+ CellID->1341745064],
+Cell[6899, 190, 920, 20, 74, "Text",ExpressionUUID->"45732092-2b7f-410f-8a2b-a7fed714fad1",
+ CellID->1274662809],
+Cell[7822, 212, 1004, 21, 91, "Text",ExpressionUUID->"b9edbba3-6602-4622-9670-0d4a83d10ba1",
+ CellID->357593670]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8863, 238, 175, 2, 39, "Subsection",ExpressionUUID->"f62b6ab0-4955-4add-a32a-193b8674d392",
+ CellID->795472253],
+Cell[9041, 242, 592, 9, 74, "Text",ExpressionUUID->"4f36f817-b212-4656-956a-11f2667db551",
+ CellID->1436331852]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9670, 256, 200, 2, 39, "Subsection",ExpressionUUID->"92c02fe3-ec03-4f80-8e37-54f0d9eaa359",
+ CellID->444222777],
+Cell[9873, 260, 425, 7, 40, "Text",ExpressionUUID->"f1929085-a780-461f-a5d9-1c190097c71c",
+ CellID->1498625983],
+Cell[10301, 269, 563, 9, 74, "Text",ExpressionUUID->"f57d61c9-3c22-4d0e-a9ac-61ab62b12c89",
+ CellID->971954906]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10901, 283, 181, 2, 39, "Subsection",ExpressionUUID->"90117a5d-2141-42ff-b0f4-311e4ec37c0c",
+ CellID->1454836565],
+Cell[11085, 287, 804, 15, 74, "Text",ExpressionUUID->"fca13929-b3c8-4199-973e-6a45453fae8f",
+ CellID->1334145171],
+Cell[11892, 304, 919, 24, 57, "Text",ExpressionUUID->"0f095b3b-8c9e-4c80-85cb-6a0672c68882",
+ CellID->1168456515]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12848, 333, 224, 3, 39, "Subsection",ExpressionUUID->"a810104c-8a94-4a02-ba99-83d1f76ee599",
+ CellID->868063196],
+Cell[13075, 338, 713, 13, 74, "Text",ExpressionUUID->"82f44f38-b19b-45b5-98dd-da162d23fad7",
+ CellID->1786917670],
+Cell[13791, 353, 783, 12, 91, "Text",ExpressionUUID->"fb35c87f-c798-4e2f-904b-51f00f86f1e8",
+ CellID->1607046014]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14611, 370, 238, 3, 39, "Subsection",ExpressionUUID->"eb5d054c-6a8e-4d0b-88d3-54ca615fbe4e",
+ CellID->519706979],
+Cell[14852, 375, 663, 13, 74, "Text",ExpressionUUID->"178f2375-920e-4b98-a1a6-fdb43e9f86fd",
+ CellID->999984873],
+Cell[15518, 390, 626, 10, 74, "Text",ExpressionUUID->"240ee065-2494-4c58-bb83-dfcaa77bf688",
+ CellID->1225304024]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16193, 406, 186, 2, 43, "Section",ExpressionUUID->"1b15faf5-3efe-448d-b725-60f1a450e858",
+ CellID->2105163132],
+Cell[16382, 410, 1851, 54, 63, "Text",ExpressionUUID->"f31cbafa-b8d8-4c8a-b670-faef8c143c5c",
+ CellID->2021506240],
+Cell[18236, 466, 2249, 57, 120, "Text",ExpressionUUID->"579f890d-6994-475c-a998-4c27874c2397",
+ CellID->346116279],
+Cell[20488, 525, 252, 5, 23, "Text",ExpressionUUID->"78c93157-184a-43cc-ba0a-d177aaf56b5c",
+ CellID->736067505],
+Cell[20743, 532, 1286, 31, 74, "BulletedText",ExpressionUUID->"bd94e974-622a-45d2-b9ae-d15fcf43e843",
+ CellID->2035831027],
+Cell[22032, 565, 854, 22, 40, "BulletedText",ExpressionUUID->"9e7bc989-edd5-4eb3-872c-fd66c9cd0224",
+ CellID->1125263907],
+Cell[22889, 589, 978, 24, 40, "BulletedText",ExpressionUUID->"3aadf624-a00b-43c0-a2b0-666d72a23d04",
+ CellID->1256618946],
+Cell[CellGroupData[{
+Cell[23892, 617, 1060, 22, 58, "BulletedText",ExpressionUUID->"72def46f-0e5d-4628-9353-625dd08e5c8e",
+ CellID->1525240975],
+Cell[CellGroupData[{
+Cell[24977, 643, 622, 16, 70, "Input",ExpressionUUID->"cce935ce-9b4e-4d82-9090-02be8a75878b",
+ CellID->710145480],
+Cell[25602, 661, 359, 8, 44, "Output",ExpressionUUID->"3aeaa012-90dd-41ce-a64d-4a12ba42a5ba",
+ CellID->1212174763]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26022, 676, 224, 3, 43, "Section",ExpressionUUID->"d311c60d-9e50-4d2c-b5ac-64788ea32d83",
+ CellID->1277865433],
+Cell[26249, 681, 4401, 99, 255, "DefinitionBox",ExpressionUUID->"7bfea342-42a5-4052-ab29-fbc0eaba74df",
+ CellID->2096742444],
+Cell[30653, 782, 496, 10, 43, "Text",ExpressionUUID->"1cd4f941-93ac-4b00-ab76-56f3cd4f27e5",
+ CellID->584640861]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31186, 797, 181, 2, 43, "Section",ExpressionUUID->"f5b3c200-0265-4889-9146-52f15a6ed355",
+ CellID->951892940],
+Cell[31370, 801, 689, 17, 40, "Text",ExpressionUUID->"6a65b8c0-478d-4f8a-917e-e41d76e385d8",
+ CellID->293912417],
+Cell[32062, 820, 410, 7, 57, "Text",ExpressionUUID->"2260f8bd-330c-4f16-9743-0cf680c69db5",
+ CellID->84768692],
+Cell[32475, 829, 406, 7, 57, "Text",ExpressionUUID->"4d855364-54bb-400c-b844-6a68ff9ebf8a",
+ CellID->849464701],
+Cell[32884, 838, 423, 10, 40, "Text",ExpressionUUID->"49e30d30-584b-474e-aa1c-d2c1cf95cf60",
+ CellID->1213322604]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33344, 853, 120, 1, 72, "TutorialMoreAboutSection",ExpressionUUID->"dc7c777e-b502-4aff-9858-0f3babf2ea6a",
+ CellID->23220180],
+Cell[33467, 856, 109, 1, 22, "TutorialMoreAbout",ExpressionUUID->"3e831491-2d5c-4525-bb5a-823f2ece9001",
+ CellID->1567025153]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33613, 862, 127, 1, 72, "RelatedTutorialsSection",ExpressionUUID->"c7ff52c8-0075-4be5-8ef2-c603124f3239",
+ CellID->415694126],
+Cell[33743, 865, 107, 1, 22, "RelatedTutorials",ExpressionUUID->"683aa858-882a-4bce-b0e1-609dadc74b86",
+ CellID->806871991]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33887, 871, 153, 1, 72, "TutorialRelatedLinksSection",ExpressionUUID->"dc2ad29e-94d9-4ece-959d-cca3c8a92936",
+ CellID->415694148],
+Cell[34043, 874, 111, 1, 22, "TutorialRelatedLinks",ExpressionUUID->"0d3c1346-d3b2-4534-a0a4-8768590043c8",
+ CellID->415694149]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

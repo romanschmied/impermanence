@@ -1,4 +1,4 @@
-# impermanence
+# Impermanence
 Impermanence is a Mathematica package that provides variables whose content changes randomly over time. The longer a variable is allowed to sit around, the more its content changes from its initial value.
 
 ## getting started
@@ -9,7 +9,7 @@ You need [Wolfram Mathematica](https://www.wolfram.com/mathematica/) to use this
 
 ### installing
 
-1. Download **Impermanence.zip**.
+1. Download [Impermanence.zip](Impermanence.zip).
 2. In Mathematica, open the menu item **File** - **Install...**".
 3. Set **Type of Item to Install:** to **Application**.
 4. Select **Source:** - **From File...** and select the file **Impermanence.zip** you have just downloaded.
@@ -33,15 +33,15 @@ In the documentation search field, type **Impermanence** and press enter. Select
 
 The common saving of data in computer science relies on the concept that some information can be stored for an indefinite amount of time, and then be retrieved in a completely lossless process. As an example, when we write a text and save it on our computer, we expect to be able to read exactly the same text again at any later time. The file should hold our data forever and without changing.
 
-At the root of all data storage mechanisms lies the computational concept of a variable, which is an abstract space that holds a value perfectly and for all time (or at least until it isn't needed any longer). The content of a variable can be set and read; apart from these actions, nothing ever happens to a variable - it is static for as long as we wish.
+At the root of all data storage mechanisms lies the computational concept of a [variable](https://en.wikipedia.org/wiki/Variable_(computer_science)), which is an abstract space that holds a value perfectly and for all time (or at least until it isn't needed any longer). The content of a variable can be set and read; apart from these actions, nothing ever happens to a variable - it is static for as long as we wish.
 
 ### permanence in the real world
 
 By contrast, our experience tells us that in the real world we unfailingly lose information. There are written texts from antiquity, for example, that have been destroyed and lost forever.
 
-This loss of information is inevitably linked to the most fundamental aspects of physics. Technically, the second law of thermodynamics assures us that the order of a closed system can at most stay constant but never increase spontaneously; more practically, this means that an unwanted disturbance of a data storage is almost guaranteed to lead to information loss.
+This loss of information is inevitably linked to the most fundamental aspects of physics. Technically, the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics) assures us that the order of a closed system can at most stay constant but never increase spontaneously; more practically, this means that an unwanted disturbance of a data storage is almost guaranteed to lead to [information loss](https://en.wikipedia.org/wiki/Data_degradation).
 
-Flash memory, which is the current standard for computer data storage, has a data retention time estimated around a few years (likely less than 20). With a multi-level error-correcting algorithm, this time scale can be extended to arbitrarily long times; however, can we reasonably expect someone to still run this error-correcting algorithm in the far future? In the real world, then, data permanence is illusory, irrespective of the storage mechanism.
+[Flash memory](https://en.wikipedia.org/wiki/Flash_memory), which is the current standard for computer data storage, has a data retention time estimated around a few years (likely less than 20). With a multi-level [error-correcting algorithm](https://en.wikipedia.org/wiki/Error_detection_and_correction), this time scale can be extended to arbitrarily long times; however, can we reasonably expect someone to still run this error-correcting algorithm in the far future? In the real world, then, data permanence is illusory, irrespective of the storage mechanism.
 
 ### consequences
 
@@ -55,9 +55,9 @@ The mere concept of absolutely static, eternal, entities leads to logical diffic
 
 ### impermanence idea
 
-Therefore, from a philosophical perspective, classical computer science appears as an attempt to idealize the concepts of information, memory, etc. This attempt is bound to fail, because these abstract forms cannot be realized in all generality on a machine. Moreover, this idealizing approach occasionally leads to the fallacious belief that such platonic ideals represent accurately our reality.
+Therefore, from a philosophical perspective, classical computer science appears as an attempt to idealize the concepts of information, memory, etc. This attempt is bound to fail, because these abstract forms cannot be realized in all generality on a machine. Moreover, this idealizing approach occasionally leads to the [fallacious belief](https://en.wikipedia.org/wiki/Reification_(fallacy)) that such [platonic ideals](https://en.wikipedia.org/wiki/Theory_of_forms) represent accurately our reality.
 
-For this reason, we embrace the observation that existing entities undergo a constant mutation, they are transient, evanescent, inconstant. This philosophical thought is already present in Heraclitus' *panta rhei*, in Buddhist *impermanence*, and in many other doctrines.
+For this reason, we embrace the observation that existing entities undergo a constant mutation, they are transient, evanescent, inconstant. This philosophical thought is already present in [Heraclitus](https://en.wikipedia.org/wiki/Heraclitus)' *panta rhei*, in [Buddhist](https://en.wikipedia.org/wiki/Buddhism) *impermanence*, and in many other doctrines.
 
 ### applications
 
@@ -75,11 +75,11 @@ It should also be noted that although this package tries to illustrate an aspect
 
 Assume that we have defined an impermanent variable x. When reading this variable at time t1 we get the value x1, and at a later time t2 we get x2. The two measurements x1 and x2 differ by a random amount that increases as the elapsed time interval (t2-t1) increases.
 
-More precisely, every impermanent variable's content simulates a Wiener process. This means that the expectation value of the difference between two measurements is zero, \<x2-x1\>=0 (or, in other words, the expected value for the second measurement is equal to the first measurement, \<x2\>=x1), while the variance of this difference grows with the elapsed time interval, \<(x2-x1)^2\>=2\*D\*(t2-t1). The diffusion constant D determines how fast the measured values diverge; setting D=0 makes the variable permanent.
+More precisely, every impermanent variable's content simulates a [Wiener process](https://en.wikipedia.org/wiki/Wiener_process). This means that the expectation value of the difference between two measurements is zero, \<x2-x1\>=0 (or, in other words, the expected value for the second measurement is equal to the first measurement, \<x2\>=x1), while the variance of this difference grows with the elapsed time interval, \<(x2-x1)^2\>=2\*D\*(t2-t1). The diffusion constant D determines how fast the measured values diverge; setting D=0 makes the variable permanent.
 
 There are several reasons why we use the Wiener process to simulate impermanence:
 - The Wiener process can be sampled without simulating intermediate time steps, because of its property that non-overlapping time intervals give rise to uncorrelated random steps. Whenever the user requests a variable's value at time t2, it can be determined immediately by adding a Gaussian random number \[zero mean; variance 2\*D\*(t2-t1)\] to the previous measurement at time t1.
-- The Wiener process is a martingale. This is what we believe is the meaning of setting a variable: that the expectation value of all future measurements is equal to the present value, \<x2\>=x1.
+- The Wiener process is a [martingale](https://en.wikipedia.org/wiki/Martingale_(probability_theory)). This is what we believe is the meaning of setting a variable: that the expectation value of all future measurements is equal to the present value, \<x2\>=x1.
 - Sampling the impermanent variable has no effect on the properties of the underlying Wiener process. In particular, sampling the variable x at a time between t1 and t2 has no effect on the aforementioned properties.
 - The Wiener process has a noise power spectrum proportional to 1/f^2. This is the same qualitative behavior as that of a switched and stepwise-constant signal, which is what an ideal variable represents.
 
@@ -90,7 +90,7 @@ This package was built with [Wolfram Workbench](https://www.wolfram.com/workbenc
 
 ## authors
 
-- Roman Schmied
+- Roman Schmied @romanschmied
 - Matteo Fadel
 
 ## license

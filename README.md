@@ -10,7 +10,7 @@ You need [Wolfram Mathematica](https://www.wolfram.com/mathematica/) to use this
 ### installing
 
 1. Download [Impermanence.zip](https://github.com/romanschmied/impermanence/raw/master/Impermanence.zip).
-2. In Mathematica, open the menu item **File** - **Install...**".
+2. In Mathematica, open the menu item **File** - **Install...**.
 3. Set **Type of Item to Install:** to **Application**.
 4. Select **Source:** - **From File...** and select the file **Impermanence.zip** you have just downloaded.
 5. Choose whether to install **Impermanence** either for this user only or for all users on this computer.

@@ -57,7 +57,7 @@ The mere concept of absolutely static, eternal, entities leads to logical diffic
 
 Therefore, from a philosophical perspective, classical computer science appears as an attempt to idealize the concepts of information, memory, etc. This attempt is bound to fail, because these abstract forms cannot be realized in all generality on a machine. Moreover, this idealizing approach occasionally leads to the fallacious belief that such platonic ideals represent accurately our reality.
 
-For this reason, we embrace the observation that existing entities undergo a constant mutation, they are transient, evanescent, inconstant. This philosophical thought is already present in Heraclitus' panta rhei, in Buddhist impermanence, and in many other doctrines.
+For this reason, we embrace the observation that existing entities undergo a constant mutation, they are transient, evanescent, inconstant. This philosophical thought is already present in Heraclitus' *panta rhei*, in Buddhist *impermanence*, and in many other doctrines.
 
 ### applications
 
@@ -75,11 +75,11 @@ It should also be noted that although this package tries to illustrate an aspect
 
 Assume that we have defined an impermanent variable x. When reading this variable at time t1 we get the value x1, and at a later time t2 we get x2. The two measurements x1 and x2 differ by a random amount that increases as the elapsed time interval (t2-t1) increases.
 
-More precisely, every impermanent variable's content simulates a Wiener process. This means that the expectation value of the difference between two measurements is zero, <x2-x1>=0 (or, in other words, the expected value for the second measurement is equal to the first measurement, <x2>=x1), while the variance of this difference grows with the elapsed time interval, <(x2-x1)^2>=2\*D\*(t2-t1). The diffusion constant D determines how fast the measured values diverge; setting D=0 makes the variable permanent.
+More precisely, every impermanent variable's content simulates a Wiener process. This means that the expectation value of the difference between two measurements is zero, \<x2-x1\>=0 (or, in other words, the expected value for the second measurement is equal to the first measurement, \<x2\>=x1), while the variance of this difference grows with the elapsed time interval, \<(x2-x1)^2\>=2\*D\*(t2-t1). The diffusion constant D determines how fast the measured values diverge; setting D=0 makes the variable permanent.
 
 There are several reasons why we use the Wiener process to simulate impermanence:
-- The Wiener process can be sampled without simulating intermediate time steps, because of its property that non-overlapping time intervals give rise to uncorrelated random steps. Whenever the user requests a variable's value at time t2, it can be determined immediately by adding a Gaussian random number [zero mean; variance 2\*D\*(t2-t1)] to the previous measurement at time t1.
-- The Wiener process is a martingale. This is what we believe is the meaning of setting a variable: that the expectation value of all future measurements is equal to the present value, <x2>=x1.
+- The Wiener process can be sampled without simulating intermediate time steps, because of its property that non-overlapping time intervals give rise to uncorrelated random steps. Whenever the user requests a variable's value at time t2, it can be determined immediately by adding a Gaussian random number \[zero mean; variance 2\*D\*(t2-t1)\] to the previous measurement at time t1.
+- The Wiener process is a martingale. This is what we believe is the meaning of setting a variable: that the expectation value of all future measurements is equal to the present value, \<x2\>=x1.
 - Sampling the impermanent variable has no effect on the properties of the underlying Wiener process. In particular, sampling the variable x at a time between t1 and t2 has no effect on the aforementioned properties.
 - The Wiener process has a noise power spectrum proportional to 1/f^2. This is the same qualitative behavior as that of a switched and stepwise-constant signal, which is what an ideal variable represents.
 

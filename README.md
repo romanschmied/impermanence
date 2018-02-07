@@ -9,7 +9,7 @@ You need [Wolfram Mathematica](https://www.wolfram.com/mathematica/) to use this
 
 ### installing
 
-1. Download [Impermanence.zip](Impermanence.zip).
+1. Download [Impermanence.zip](https://github.com/romanschmied/impermanence/raw/master/Impermanence.zip).
 2. In Mathematica, open the menu item **File** - **Install...**".
 3. Set **Type of Item to Install:** to **Application**.
 4. Select **Source:** - **From File...** and select the file **Impermanence.zip** you have just downloaded.
@@ -90,7 +90,7 @@ This package was built with [Wolfram Workbench](https://www.wolfram.com/workbenc
 
 ## authors
 
-- Roman Schmied @romanschmied
+- Roman Schmied <rschmied@gmail.com>
 - Matteo Fadel
 
 ## license

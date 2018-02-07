@@ -73,16 +73,42 @@ It should also be noted that although this package tries to illustrate an aspect
 
 ## technical description
 
-Assume that we have defined an impermanent variable x. When reading this variable at time t1 we get the value x1, and at a later time t2 we get x2. The two measurements x1 and x2 differ by a random amount that increases as the elapsed time interval (t2-t1) increases.
+Assume that we have defined an impermanent variable *x*. When reading this variable at time *t*<sub>1</sub> we get the value *x*<sub>1</sub>, and at a later time *t*<sub>2</sub> we get *x*<sub>2</sub>. The two measurements *x*<sub>1</sub> and *x*<sub>2</sub> differ by a random amount that increases as the elapsed time interval (*t*<sub>2</sub>-*t*<sub>1</sub>) increases.
 
-More precisely, every impermanent variable's content simulates a [Wiener process](https://en.wikipedia.org/wiki/Wiener_process). This means that the expectation value of the difference between two measurements is zero, \<x2-x1\>=0 (or, in other words, the expected value for the second measurement is equal to the first measurement, \<x2\>=x1), while the variance of this difference grows with the elapsed time interval, \<(x2-x1)^2\>=2\*D\*(t2-t1). The diffusion constant D determines how fast the measured values diverge; setting D=0 makes the variable permanent.
+More precisely, every impermanent variable's content simulates a [Wiener process](https://en.wikipedia.org/wiki/Wiener_process). This means that the expectation value of the difference between two measurements is zero, \<*x*<sub>2</sub>-*x*<sub>1</sub>\>=0 (or, in other words, the expected value for the second measurement is equal to the first measurement, \<*x*<sub>2</sub>\>=*x*<sub>1</sub>), while the variance of this difference grows with the elapsed time interval, \<\(*x*<sub>2</sub>-*x*<sub>1</sub>\)^2\>=2\*D\*(*t*<sub>2</sub>-*t*<sub>1</sub>). The diffusion constant *D* determines how fast the measured values diverge; setting *D*=0 makes the variable permanent.
 
 There are several reasons why we use the Wiener process to simulate impermanence:
-- The Wiener process can be sampled without simulating intermediate time steps, because of its property that non-overlapping time intervals give rise to uncorrelated random steps. Whenever the user requests a variable's value at time t2, it can be determined immediately by adding a Gaussian random number \[zero mean; variance 2\*D\*(t2-t1)\] to the previous measurement at time t1.
-- The Wiener process is a [martingale](https://en.wikipedia.org/wiki/Martingale_(probability_theory)). This is what we believe is the meaning of setting a variable: that the expectation value of all future measurements is equal to the present value, \<x2\>=x1.
-- Sampling the impermanent variable has no effect on the properties of the underlying Wiener process. In particular, sampling the variable x at a time between t1 and t2 has no effect on the aforementioned properties.
-- The Wiener process has a noise power spectrum proportional to 1/f^2. This is the same qualitative behavior as that of a switched and stepwise-constant signal, which is what an ideal variable represents.
+- The Wiener process can be sampled without simulating intermediate time steps, because of its property that non-overlapping time intervals give rise to uncorrelated random steps. Whenever the user requests a variable's value at time *t*<sub>2</sub>, it can be determined immediately by adding a Gaussian random number \[zero mean; variance 2\**D*\*(*t*<sub>2</sub>-*t*<sub>1</sub>)\] to the previous measurement at time *t*<sub>1</sub>.
+- The Wiener process is a [martingale](https://en.wikipedia.org/wiki/Martingale_(probability_theory)). This is what we believe is the meaning of setting a variable: that the expectation value of all future measurements is equal to the present value, \<*x*<sub>2</sub>\>=*x*<sub>1</sub>.
+- Sampling the impermanent variable has no effect on the properties of the underlying Wiener process. In particular, sampling the variable *x* at a time between *t*<sub>1</sub> and *t*<sub>2</sub> has no effect on the aforementioned properties.
+- The Wiener process has a noise power spectrum proportional to 1/*f*^2. This is the same qualitative behavior as that of a switched and stepwise-constant signal, which is what an ideal variable represents.
 
+
+## a minimal usage example
+
+Load the **Impermanence** package:
+```mathematica
+In[1]:= Needs["Impermanence`"]
+```
+Define the variable *g* to be impermanent, with diffusion constant *D*=1 per second:
+```mathematica
+In[2]:= MakeImpermanentVariable[g, 1]
+```
+Set the variable *g* to the value 100:
+```mathematica
+In[3]:= g = 100
+Out[3]= 100.
+```
+What is the current value of *g*? We see that it has changed randomly from the value we just set it to:
+```mathematica
+In[4]:= g
+Out[4]= 100.38
+```
+We check again, and the value of *g* has changed again:
+```mathematica
+In[5]:= g
+Out[5]= 100.455
+```
 
 ## built with
 

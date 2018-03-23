@@ -4,7 +4,7 @@
 (*Impermanence*)
 
 (* ::Text:: *)
-(*version 0.6 of February 6, 2018*)
+(*version 0.6.1 of March 23, 2018*)
 
 (* ::Text:: *)
 (*Copyright 2018 Roman Schmied*)
@@ -59,13 +59,16 @@
 (*				edited documentation*)
 (*				added initialization facility to MakeImpermanentVariable, with default argument zero*)
 
+(* ::Text:: *)
+(*0.6.1	2018/3/23	minor documentation fix*)
+
 
 (* ::Section:: *)
 (*prolog*)
 
 BeginPackage["Impermanence`"]
 
-ImpermanenceVersion = "0.6";
+ImpermanenceVersion = "0.6.1";
 SetAttributes[ImpermanenceVersion,{Locked,Protected}]
 
 
@@ -73,7 +76,7 @@ SetAttributes[ImpermanenceVersion,{Locked,Protected}]
 (*help declarations*)
 
 ImpermanenceVersion::usage =
-	"ImpermanenceVersion[] "~~
+	"ImpermanenceVersion "~~
 	"gives the version number of the Impermanence package.";
 
 MakeImpermanentVariable::usage =
